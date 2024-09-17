@@ -1,7 +1,7 @@
 # image: docker/project01:1.0
-ARG PYTHON-VERSION=3.12.6
+ARG PYTHON_VERSION=3.12.6
 
-FROM python:3.12.6
+FROM python:${PYTHON_VERSION}
 
 LABEL Maintainer="iwunduchuks@gmail.com" \
       version='1.0' \
