@@ -19,5 +19,5 @@ Steps to use.
 4. Run docker container to overide default and load to csv file instead
 
     ```bash
-    docker run --name project02 docker/project02:1.0 pipline_csv.py
+    docker run --name project02.1 docker/project02:1.0 pipline_csv.py
     ```
