@@ -1,0 +1,4 @@
+# Configuration
+url: "https://rest.coinapi.io/v1/exchangerate/BTC/USD"
+headers:
+  X-CoinAPI-Key: '0A4EC419-E056-44E2-B22B-CEDDB3C09AC0'

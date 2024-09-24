@@ -9,7 +9,7 @@ with open("Config.yaml", "r") as file:
 url = data['url']
 headers = data['headers']
 
-def run_pipleine():
+def run_pipleine_csv():
     start_time = time.time()
     duration = 30 # seconds
 
@@ -18,6 +18,7 @@ def run_pipleine():
         if current_time - start_time < duration:
             # Extract data
             response = extract.extract(url, headers)
+            time.sleep(1) # to delay number of get requests made
             if response == None:
                 continue
 
@@ -25,9 +26,9 @@ def run_pipleine():
             data, dt = transform.transform(response)
 
             # Load data
-            load.load(data, dt)
+            load.load_to_csv(data, dt)
         else:
             break
 
 if __name__ == '__main__':
-    run_pipleine()
+    run_pipleine_csv()

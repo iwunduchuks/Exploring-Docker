@@ -2,9 +2,9 @@ import requests
 
 def extract(url, headers):
     try:
-        if response.status_code == 200:
-            response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers)
+        print('Data extraction sucessful')
         return response
     except Exception:
-        print(f"Error: Unable to fetch data. Status code: {response.status_code}")
+        print(f"Error: Unable to fetch data.")
         return None
