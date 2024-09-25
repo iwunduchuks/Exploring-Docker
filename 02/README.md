@@ -2,13 +2,12 @@
 
 Steps to use.
 
-1. Make sure you are on Project02 working directory
+1. Make sure you are on Project02 working directory in a bash terminal.
 
 2. Create Docker volume that would be used to persistently store the database and csv file
 
     ```bash
     docker volume create \
-    --group exploring-docker \
     --label description='docker volume for project02' \
     project02_volume
     ```
