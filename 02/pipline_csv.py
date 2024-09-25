@@ -4,10 +4,10 @@ import yaml
 
 # Load the YAML file
 with open("Config.yaml", "r") as file:
-    data = yaml.safe_load(file)
+    config = yaml.safe_load(file)
 
-url = data['url']
-headers = data['headers']
+url = config['url']
+headers = config['headers']
 
 def run_pipleine_csv():
     start_time = time.time()
@@ -19,7 +19,8 @@ def run_pipleine_csv():
             # Extract data
             response = extract.extract(url, headers)
             time.sleep(1) # to delay number of get requests made
-            if response == None:
+            if response == None or response.status_code != 200:
+                print(f'Error in request. Status Code: {response.status_code}')
                 continue
 
             # Transform data

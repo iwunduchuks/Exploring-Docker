@@ -29,7 +29,7 @@ Steps to use.
     ```bash
     docker run \
     --name project02 \
-    --mount type=volume,source=project02_volume,target=/usr/src/app \
+    -v project02_volume:/usr/src/app \
     docker/project02:1.0
     ```
 
@@ -38,7 +38,7 @@ Steps to use.
     ```bash
     docker run \
     --name project02.1 \
-    --mount type=volume,source=project02_volume,target=/usr/src/app \
+    -v project02_volume:/usr/src/app \
     docker/project02:1.0 pipline_csv.py
     ```
 
@@ -48,7 +48,7 @@ Steps to use.
     docker run \
     --name project02 \
     --env LOAD_ROUTE='csv' \
-    --mount type=volume,source=project02_volume,target=/usr/src/app \
+    -v project02_volume:/usr/src/app \
     docker/project02:1.0    
     ```
 
