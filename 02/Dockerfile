@@ -7,6 +7,8 @@ LABEL Maintainer="iwunduchuks@gmail.com" \
       version='1.0' \
       description='docker image for project 02'
 
+ENV LOAD_ROUTE='database'
+
 WORKDIR /usr/src/app
 
 COPY . .

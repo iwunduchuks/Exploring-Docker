@@ -2,6 +2,13 @@ from src.etl import extract, transform, load
 import time
 import yaml
 
+import os
+
+# Get an environment variable
+Load_route = os.getenv('LOAD_ROUTE', 'database')
+print(f"LOAD_ROUTE: {Load_route}")
+
+
 # Load the YAML file
 with open("Config.yaml", "r") as file:
     data = yaml.safe_load(file)
@@ -25,7 +32,10 @@ def run_pipleine():
             data, dt = transform.transform(response)
 
             # Load data
-            load.load(data, dt)
+            if Load_route == 'database':
+                load.load(data, dt)
+            elif Load_route == 'csv':
+                load.load_to_csv(data, dt)                
         else:
             break
 
